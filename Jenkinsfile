@@ -9,11 +9,8 @@ pipeline {
         stage('Git Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/thev1ndu/fullstack-bank-int-jenkins.git'
-                sh "pwd"
             }
         }
-
-        
         
         stage('Pull Trivy Docker Image') {
             steps {
