@@ -25,6 +25,13 @@ pipeline {
                 '''
             }
         }
+
+        stage('OWASP File System Scan') {
+            steps {
+                dependencyCheck additionalArguments: '--scan ./', odcInstallation: 'DC'
+                dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
+            }
+        }
         
         stage('Install Dependencies') {
             steps {
